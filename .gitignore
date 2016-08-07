@@ -3,5 +3,5 @@ Debug/*.exe
 Debug/*.ilk
 Debug/*.pdb
 RemoteSystemsTempFiles/
-#HelloGL/CEGUI.log
 **/CEGUI.log
+.metadata/
