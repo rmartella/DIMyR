@@ -22,7 +22,7 @@ void GLApplication::GLMain() {
 
 void GLApplication::initialize() {
 	if (!windowManager
-			|| !windowManager->initialize(800, 700, "Simulation", false)) {
+			|| !windowManager->initialize(800, 700, "Window GLFW", false)) {
 		this->destroy();
 		exit(-1);
 	}
