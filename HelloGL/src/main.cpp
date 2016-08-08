@@ -18,6 +18,8 @@
 
 static GLFWwindow* window;
 
+using namespace CEGUI;
+
 CEGUI::MouseButton toCEGUIButton(int button) {
 	switch (button) {
 	case GLFW_MOUSE_BUTTON_LEFT:
@@ -262,7 +264,6 @@ void initGLFW() {
 }
 
 void initCEGUI() {
-	using namespace CEGUI;
 
 	// create renderer and enable extra states
 	OpenGL3Renderer& cegui_renderer = OpenGL3Renderer::create(
