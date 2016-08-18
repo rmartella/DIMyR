@@ -13,6 +13,8 @@
 #include <GL/glew.h>
 
 #include "WindowManager.h"
+#include "TimeManager.h"
+#include "Shader.h"
 
 class GLApplication {
 public:
