@@ -23,6 +23,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Uniforms", "Uniforms\Unifor
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VertexAttribute", "VertexAttribute\VertexAttribute.vcxproj", "{B784FF9B-3FCF-4E98-A6F9-FF9E4DA8CD6A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoadTexture", "LoadTexture\LoadTexture.vcxproj", "{BB294DCD-6585-43F1-9B4F-E55051F3BC8F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextureUnits", "TextureUnits\TextureUnits.vcxproj", "{8D300666-BC48-489C-91BF-62D8E67A1696}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -69,6 +73,14 @@ Global
 		{B784FF9B-3FCF-4E98-A6F9-FF9E4DA8CD6A}.Debug|Win32.Build.0 = Debug|Win32
 		{B784FF9B-3FCF-4E98-A6F9-FF9E4DA8CD6A}.Release|Win32.ActiveCfg = Release|Win32
 		{B784FF9B-3FCF-4E98-A6F9-FF9E4DA8CD6A}.Release|Win32.Build.0 = Release|Win32
+		{BB294DCD-6585-43F1-9B4F-E55051F3BC8F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BB294DCD-6585-43F1-9B4F-E55051F3BC8F}.Debug|Win32.Build.0 = Debug|Win32
+		{BB294DCD-6585-43F1-9B4F-E55051F3BC8F}.Release|Win32.ActiveCfg = Release|Win32
+		{BB294DCD-6585-43F1-9B4F-E55051F3BC8F}.Release|Win32.Build.0 = Release|Win32
+		{8D300666-BC48-489C-91BF-62D8E67A1696}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8D300666-BC48-489C-91BF-62D8E67A1696}.Debug|Win32.Build.0 = Debug|Win32
+		{8D300666-BC48-489C-91BF-62D8E67A1696}.Release|Win32.ActiveCfg = Release|Win32
+		{8D300666-BC48-489C-91BF-62D8E67A1696}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
