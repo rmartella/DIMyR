@@ -73,7 +73,6 @@ bool GLFWManager::processInput(bool continueApplication = true) {
 	if (glfwWindowShouldClose(window) != 0 || inputManager.isExitApp()) {
 		return false;
 	}
-	deltaTime = 1 / TimeManager::Instance().CalculateFrameRate(false);
 	//std::cout << "Frame rate:" << deltaTime << std::endl;
 	glfwPollEvents();
 	return continueApplication;

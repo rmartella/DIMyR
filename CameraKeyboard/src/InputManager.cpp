@@ -80,6 +80,7 @@ void InputManager::mouseScroll(float yoffset) {
 void InputManager::do_movement(float deltaTime) {
 	// Camera controls
 	float cameraSpeed = 5.0f * deltaTime;
+	std::cout << "cameraSpeed:" << cameraSpeed << std::endl;
 	if (keyState[InputCodes::W] || keyState[InputCodes::w]
 			|| keyState[InputCodes::Up])
 		cameraPos += cameraSpeed * cameraFront;

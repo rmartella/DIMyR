@@ -74,7 +74,8 @@ bool GLFWManager::processInput(bool continueApplication = true) {
 			|| inputManager.getKeyState()[kEscape]) {
 		return false;
 	}
-	deltaTime = 1 / TimeManager::Instance().CalculateFrameRate(false);
+	TimeManager::Instance().CalculateFrameRate(false);
+	deltaTime =  TimeManager::Instance().DeltaTime;
 	//std::cout << "Frame rate:" << deltaTime << std::endl;
 	glfwPollEvents();
 	inputManager.do_movement(deltaTime);
