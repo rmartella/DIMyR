@@ -143,13 +143,9 @@ void GLApplication::applicationLoop() {
 		glUniform1i(shader.getUniformLocation("ourTexture2"), 1);
 
 		// Create transformations
-		glm::mat4 view = glm::mat4();
-		view = glm::rotate(view,
-				glm::radians(windowManager->inputManager.getPitch()),
-				glm::vec3(1, 0, 0));
-		view = glm::rotate(view,
-				glm::radians(windowManager->inputManager.getYaw()),
-				glm::vec3(0, 1, 0));
+		glm::mat4 view;
+		view = glm::rotate(view, windowManager->inputManager.getPitch(), glm::vec3(1, 0, 0));
+		view = glm::rotate(view, windowManager->inputManager.getYaw(), glm::vec3(0, 1, 0));
 		glm::vec3 cameraPos = windowManager->inputManager.getCameraPos();
 		view = glm::translate(view,
 				glm::vec3(-cameraPos.x, -cameraPos.y, -cameraPos.z));

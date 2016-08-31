@@ -84,17 +84,17 @@ public:
 			lastMousePos(glm::ivec2(0.0)), deltax(0), deltay(0), scrollYoffset(
 					0), cameraPos(glm::vec3(0.0f, 0.0f, 3.0f)), yaw(0), pitch(
 					20), roll(0), distanceFromPlayer(5), angleAroundPlayer(0) {
-		mouseButtomState = new bool[3]();
-		for (unsigned int i = 0; i < sizeof(mouseButtomState); i++)
+		mouseButtomState = new bool[3];
+		keyState = new bool[1024];
+		for (int i = 0; i < 3; i++)
 			mouseButtomState[i] = false;
-		keyState = new bool[1024]();
-		for (unsigned int i = 0; i < sizeof(keyState); i++)
+		for (int i = 0; i < 1024; i++)
 			keyState[i] = false;
 	}
 
 	~InputManager() {
-		delete mouseButtomState;
-		delete keyState;
+		delete []mouseButtomState;
+		delete []keyState;
 	}
 
 	InputCodes toApplicationKey(int key);

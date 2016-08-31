@@ -87,9 +87,7 @@ void InputManager::mouseScroll(float yoffset) {
 void InputManager::do_movement(float deltaTime) {
 	// Camera controls
 	float cameraSpeed = 50.0f * deltaTime;
-
-	std::cout << "deltax:" << deltax << std::endl;
-	std::cout << "deltay:" << deltay << std::endl;
+	glm::vec3 camera_look_at = glm::vec3(0, 0, 0);
 
 	// Calculate zoom
 	float zoomLevel = scrollYoffset * cameraSpeed;
@@ -115,11 +113,11 @@ void InputManager::do_movement(float deltaTime) {
 	float theta = 0 + angleAroundPlayer;
 	float offsetx = horizontalDistance * glm::sin(glm::radians(theta));
 	float offsetz = horizontalDistance * glm::cos(glm::radians(theta));
-	cameraPos.x = 2 - offsetx;
-	cameraPos.z = -15 - offsetz;
-	cameraPos.y = 5 + verticalDistance;
+	cameraPos.x = camera_look_at.x - offsetx;
+	cameraPos.z = camera_look_at.z - offsetz;
+	cameraPos.y = camera_look_at.y + verticalDistance;
 
-	yaw = 0 - (180 + angleAroundPlayer);
+	yaw = 180 - theta;
 
 	scrollYoffset = 0;
 	deltax = 0;
