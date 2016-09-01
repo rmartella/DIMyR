@@ -5,11 +5,6 @@
  *      Author: rey
  */
 
-// GLM Mathematics
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-
 #include "Headers/GLApplication.h"
 
 GLuint VBO, VAO;
@@ -144,8 +139,16 @@ void GLApplication::applicationLoop() {
 
 		// Create transformations
 		glm::mat4 view;
-		view = glm::rotate(view, windowManager->inputManager.getPitch(), glm::vec3(1, 0, 0));
-		view = glm::rotate(view, windowManager->inputManager.getYaw(), glm::vec3(0, 1, 0));
+		/*view = glm::rotate(view, windowManager->inputManager.getPitch(),
+		 glm::vec3(1, 0, 0));
+		 view = glm::rotate(view, windowManager->inputManager.getYaw(),
+		 glm::vec3(0, 1, 0));*/
+		view = glm::rotate(view,
+				glm::radians(windowManager->inputManager.getPitch()),
+				glm::vec3(1, 0, 0));
+		view = glm::rotate(view,
+				glm::radians(windowManager->inputManager.getYaw()),
+				glm::vec3(0, 1, 0));
 		glm::vec3 cameraPos = windowManager->inputManager.getCameraPos();
 		view = glm::translate(view,
 				glm::vec3(-cameraPos.x, -cameraPos.y, -cameraPos.z));
