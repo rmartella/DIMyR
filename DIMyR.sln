@@ -41,6 +41,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CameraTPS", "CameraTPS\Came
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CameraTPS2", "CameraTPS2\CameraTPS2.vcxproj", "{6270AD1B-D37B-48C0-B0B8-02987E88EBAC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Plantilla", "Plantilla\Plantilla.vcxproj", "{9D7384DA-C09C-439E-B316-F80A9C5D8F06}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SolP1E1", "SolP1E1\SolP1E1.vcxproj", "{579167E6-B6F9-4DF0-9ABD-641A9DD54D68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -123,6 +127,14 @@ Global
 		{6270AD1B-D37B-48C0-B0B8-02987E88EBAC}.Debug|Win32.Build.0 = Debug|Win32
 		{6270AD1B-D37B-48C0-B0B8-02987E88EBAC}.Release|Win32.ActiveCfg = Release|Win32
 		{6270AD1B-D37B-48C0-B0B8-02987E88EBAC}.Release|Win32.Build.0 = Release|Win32
+		{9D7384DA-C09C-439E-B316-F80A9C5D8F06}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9D7384DA-C09C-439E-B316-F80A9C5D8F06}.Debug|Win32.Build.0 = Debug|Win32
+		{9D7384DA-C09C-439E-B316-F80A9C5D8F06}.Release|Win32.ActiveCfg = Release|Win32
+		{9D7384DA-C09C-439E-B316-F80A9C5D8F06}.Release|Win32.Build.0 = Release|Win32
+		{579167E6-B6F9-4DF0-9ABD-641A9DD54D68}.Debug|Win32.ActiveCfg = Debug|Win32
+		{579167E6-B6F9-4DF0-9ABD-641A9DD54D68}.Debug|Win32.Build.0 = Debug|Win32
+		{579167E6-B6F9-4DF0-9ABD-641A9DD54D68}.Release|Win32.ActiveCfg = Release|Win32
+		{579167E6-B6F9-4DF0-9ABD-641A9DD54D68}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
