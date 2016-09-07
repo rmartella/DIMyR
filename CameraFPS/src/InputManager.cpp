@@ -70,12 +70,12 @@ void InputManager::mouseMoved(float mouseX, float mouseY) {
 			pitch = -89.0f;
 
 		glm::vec3 front;
-		front.x = -cos(glm::radians(pitch)) * sin(glm::radians(yaw));
-		front.y = sin(glm::radians(pitch));
-		front.z = -cos(glm::radians(pitch)) * cos(glm::radians(yaw));
-		/*front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+		/*front.x = -cos(glm::radians(pitch)) * sin(glm::radians(yaw));
 		 front.y = sin(glm::radians(pitch));
-		 front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));*/
+		 front.z = -cos(glm::radians(pitch)) * cos(glm::radians(yaw));*/
+		front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+		front.y = sin(glm::radians(pitch));
+		front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 		cameraFront = glm::normalize(front);
 	}
 }
