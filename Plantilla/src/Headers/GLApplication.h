@@ -13,7 +13,10 @@
 #include <GL/glew.h>
 
 #include "WindowManager.h"
+#include "Sphere.h"
 #include "Shader.h"
+#include "CameraFPS.h"
+#include "TimeManager.h"
 
 class GLApplication {
 public:
@@ -34,8 +37,17 @@ public:
 		return windowManager;
 	}
 
+	CameraFPS* getCamera() {
+		return camera;
+	}
+
+	void setCamera(CameraFPS* camera) {
+		this->camera = camera;
+	}
+
 protected:
 	WindowManager * windowManager;
+	CameraFPS * camera;
 
 };
 

@@ -8,7 +8,7 @@
 #include "Headers/GLApplication.h"
 
 GLApplication::GLApplication() :
-		windowManager(nullptr) {
+		windowManager(nullptr), camera(nullptr) {
 }
 
 GLApplication::~GLApplication() {

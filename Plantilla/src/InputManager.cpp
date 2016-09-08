@@ -51,6 +51,11 @@ void InputManager::keyPressed(InputCodes code, float deltaTime, State state) {
 }
 
 void InputManager::mouseMoved(float mouseX, float mouseY) {
+	if (mouseButtomState[MouseButtonIndex::LEFT]) {
+		float xoffset = mouseX - lastMousePos.x;
+		float yoffset = lastMousePos.y - mouseY;
+		camera->ProcessMouseMovement(xoffset, yoffset);
+	}
 	lastMousePos.x = mouseX;
 	lastMousePos.y = mouseY;
 }

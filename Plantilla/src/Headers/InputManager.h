@@ -8,6 +8,8 @@
 #include <glm/gtx/quaternion.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "CameraFPS.h"
+
 // Standar GLFW for the management of inputs codes keyboards
 enum InputCodes {
 	kEscape = 27,
@@ -82,7 +84,7 @@ class InputManager {
 public:
 
 	InputManager() :
-			lastMousePos(glm::ivec2(0.0)) {
+			lastMousePos(glm::ivec2(0.0)), camera(nullptr) {
 		mouseButtomState = new bool[3];
 		keyState = new bool[1024];
 		for (int i = 0; i < 3; i++)
@@ -92,8 +94,8 @@ public:
 	}
 
 	~InputManager() {
-		delete []mouseButtomState;
-		delete []keyState;
+		delete[] mouseButtomState;
+		delete[] keyState;
 	}
 
 	InputCodes toApplicationKey(int key);
@@ -114,10 +116,19 @@ public:
 		return keyState;
 	}
 
+	CameraFPS* getCamera() {
+		return camera;
+	}
+
+	void setCamera(CameraFPS* camera) {
+		this->camera = camera;
+	}
+
 protected:
 	glm::ivec2 lastMousePos;
 	bool * mouseButtomState;
 	bool * keyState;
+	CameraFPS * camera;
 
 };
 
