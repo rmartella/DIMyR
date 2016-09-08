@@ -30,13 +30,15 @@ void GLApplication::initialize() {
 	glViewport(0, 0, WindowManager::screenWidth, WindowManager::screenHeight);
 	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
 
-}
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_DEPTH_TEST);
 
+}
 void GLApplication::applicationLoop() {
 	bool processInput = true;
 	while (processInput) {
 		processInput = windowManager->processInput(true);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		windowManager->swapTheBuffers();
 	}
 }

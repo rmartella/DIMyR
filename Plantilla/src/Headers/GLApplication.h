@@ -13,6 +13,7 @@
 #include <GL/glew.h>
 
 #include "WindowManager.h"
+#include "Shader.h"
 
 class GLApplication {
 public:
