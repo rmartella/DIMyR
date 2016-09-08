@@ -81,3 +81,14 @@ void InputManager::mouseClicked(MouseButtonIndex code, float mouseX,
 
 void InputManager::mouseScroll(float yoffset) {
 }
+
+void InputManager::do_movement(float deltaTime) {
+	if (keyState[InputCodes::W])
+		camera->ProcessKeyboard(C_FORWARD, deltaTime);
+	if (keyState[InputCodes::S])
+		camera->ProcessKeyboard(C_BACKWARD, deltaTime);
+	if (keyState[InputCodes::A])
+		camera->ProcessKeyboard(C_LEFT, deltaTime);
+	if (keyState[InputCodes::D])
+		camera->ProcessKeyboard(C_RIGHT, deltaTime);
+}

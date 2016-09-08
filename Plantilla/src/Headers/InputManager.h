@@ -107,6 +107,7 @@ public:
 	void mouseClicked(MouseButtonIndex code, float mouseX, float mouseY,
 			State state);
 	void mouseScroll(float yoffset);
+	void do_movement(float deltaTime);
 
 	glm::ivec2 getLastMousePos() {
 		return lastMousePos;
