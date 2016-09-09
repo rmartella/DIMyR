@@ -125,10 +125,13 @@ void GLApplication::applicationLoop() {
 	bool processInput = true;
 
 	glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
+	double lastTime = TimeManager::Instance().GetTime();
 
 	while (processInput) {
 		processInput = windowManager->processInput(true);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		GLfloat timeValue = TimeManager::Instance().GetTime() - lastTime;
 
 		glm::mat4 model;
 		glm::mat4 view = camera->GetViewMatrix();
@@ -140,10 +143,8 @@ void GLApplication::applicationLoop() {
 		lightingShader.turnOn();
 
 		GLint objectColorLoc = lightingShader.getUniformLocation("objectColor");
-		GLint lightPosLoc = lightingShader.getUniformLocation("lightPos");
 		GLint viewPosLoc = lightingShader.getUniformLocation("viewPos");
 		glUniform3f(objectColorLoc, 1.0f, 0.5f, 0.31f);
-		glUniform3f(lightPosLoc, lightPos.x, lightPos.y, lightPos.z);
 		glUniform3f(viewPosLoc, camera->Position.x, camera->Position.y,
 				camera->Position.z);
 
@@ -166,10 +167,23 @@ void GLApplication::applicationLoop() {
 				"light.diffuse");
 		GLint lightSpecularLoc = lightingShader.getUniformLocation(
 				"light.specular");
+		GLint lightPosLoc = lightingShader.getUniformLocation("light.position");
 
-		glUniform3f(lightAmbientLoc, 0.2f, 0.2f, 0.2f);
-		glUniform3f(lightDiffuseLoc, 0.5f, 0.5f, 0.5f); // Let's darken the light a bit to fit the scene
-		glUniform3f(lightSpecularLoc, 1.0f, 1.0f, 1.0f);
+		// Set lights properties
+		glm::vec3 lightColor;
+		lightColor.x = sin(timeValue * 2.0f);
+		lightColor.y = sin(timeValue * 0.7f);
+		lightColor.z = sin(timeValue * 1.3f);
+
+		glm::vec3 diffuseColor = lightColor * glm::vec3(0.5f); // Decrease the influence
+		glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f); // Low influence
+
+		glUniform3f(lightPosLoc, lightPos.x, lightPos.y, lightPos.z);
+		glUniform3f(lightAmbientLoc, ambientColor.x, ambientColor.y,
+				ambientColor.z);
+		glUniform3f(lightDiffuseLoc, diffuseColor.x, diffuseColor.y,
+				diffuseColor.z); // Let's darken the light a bit to fit the scene
+		glUniform3f(lightSpecularLoc, 1.0, 1.0, 1.0);
 
 		GLint modelLoc = lightingShader.getUniformLocation("model");
 		GLint viewLoc = lightingShader.getUniformLocation("view");
