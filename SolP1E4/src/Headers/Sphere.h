@@ -9,6 +9,8 @@
 #define SPHERE_H_
 
 #include <vector>
+
+#define _USE_MATH_DEFINES
 #include <math.h>
 
 #include "definition.h"
