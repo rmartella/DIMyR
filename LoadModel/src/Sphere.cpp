@@ -90,9 +90,9 @@ void Sphere::load() {
 
 	size_t stride;
 
-	size_t offset1;
-	size_t offset2;
-	size_t offset3;
+	size_t offset1 = 0;
+	size_t offset2 = 0;
+	size_t offset3 = 0;
 
 	if (mode == MODEL_MODE::VERTEX_COLOR) {
 		glBufferData(GL_ARRAY_BUFFER, vertexC.size() * sizeof(glm::vec3) * 2,
