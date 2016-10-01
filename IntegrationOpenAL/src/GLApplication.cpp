@@ -206,8 +206,9 @@ void GLApplication::applicationLoop() {
 		listenerOri[5] = camera->Up.z;
 		alListenerfv(AL_ORIENTATION, listenerOri);
 
-		if (windowManager->inputManager.getKeyState()[InputCodes::U])
+		if (windowManager->inputManager.getKeyState()[InputCodes::u]){
 			alSourcePlay(source[0]);
+		}
 	}
 }
 

@@ -77,6 +77,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CalculateRayWithGLM", "Calc
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PickingColor", "PickingColor\PickingColor.vcxproj", "{3516F071-319E-4288-9DFE-82C6B016F749}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntegrationOpenAL", "IntegrationOpenAL\IntegrationOpenAL.vcxproj", "{131CAAD5-E292-4E5F-89C3-152FE88C416A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -231,6 +233,10 @@ Global
 		{3516F071-319E-4288-9DFE-82C6B016F749}.Debug|Win32.Build.0 = Debug|Win32
 		{3516F071-319E-4288-9DFE-82C6B016F749}.Release|Win32.ActiveCfg = Release|Win32
 		{3516F071-319E-4288-9DFE-82C6B016F749}.Release|Win32.Build.0 = Release|Win32
+		{131CAAD5-E292-4E5F-89C3-152FE88C416A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{131CAAD5-E292-4E5F-89C3-152FE88C416A}.Debug|Win32.Build.0 = Debug|Win32
+		{131CAAD5-E292-4E5F-89C3-152FE88C416A}.Release|Win32.ActiveCfg = Release|Win32
+		{131CAAD5-E292-4E5F-89C3-152FE88C416A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
