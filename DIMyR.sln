@@ -79,6 +79,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PickingColor", "PickingColo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntegrationOpenAL", "IntegrationOpenAL\IntegrationOpenAL.vcxproj", "{131CAAD5-E292-4E5F-89C3-152FE88C416A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntegrationSFML", "IntegrationSFML\IntegrationSFML.vcxproj", "{8C7FD30B-38A3-45A2-81BA-71AED6219B8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -237,6 +239,10 @@ Global
 		{131CAAD5-E292-4E5F-89C3-152FE88C416A}.Debug|Win32.Build.0 = Debug|Win32
 		{131CAAD5-E292-4E5F-89C3-152FE88C416A}.Release|Win32.ActiveCfg = Release|Win32
 		{131CAAD5-E292-4E5F-89C3-152FE88C416A}.Release|Win32.Build.0 = Release|Win32
+		{8C7FD30B-38A3-45A2-81BA-71AED6219B8E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8C7FD30B-38A3-45A2-81BA-71AED6219B8E}.Debug|Win32.Build.0 = Debug|Win32
+		{8C7FD30B-38A3-45A2-81BA-71AED6219B8E}.Release|Win32.ActiveCfg = Release|Win32
+		{8C7FD30B-38A3-45A2-81BA-71AED6219B8E}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
