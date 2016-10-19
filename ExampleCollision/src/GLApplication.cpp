@@ -116,7 +116,7 @@ void GLApplication::applicationLoop() {
 		objModel1.render(&shader);
 
 		glm::mat4 model2;
-		model2 = glm::translate(model2, glm::vec3(3.0f, -4.0f, 4.0f));
+		model2 = glm::translate(model2, glm::vec3(3.0f, -4.0f, -1.0f));
 		model2 = glm::scale(model2, glm::vec3(0.8f, 0.8f, 0.8f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model2));
 		objModel2.render(&shader);
@@ -201,37 +201,38 @@ void GLApplication::applicationLoop() {
 			float fLineLength = glm::distance(o, t);
 			t1 = glm::dot(vDirToSphere, dir);
 
-			glm::vec3 vClosestPoint;
+			/*glm::vec3 vClosestPoint;
 
-			if (t1 <= 0.0f)
-				vClosestPoint = o;
-			// Si la proyección escalar del origen es mayor a distancia del origen
-			// al destino, el punto mas cercano es el destino.
-			else if (t1 >= fLineLength)
-				vClosestPoint = t;
-			// En caso contrario de calcula el punto sobre la linea usando t.
-			else
-				vClosestPoint = o + dir * (t1);
+			 if (t1 <= 0.0f)
+			 vClosestPoint = o;
+			 // Si la proyección escalar del origen es mayor a distancia del origen
+			 // al destino, el punto mas cercano es el destino.
+			 else if (t1 >= fLineLength)
+			 vClosestPoint = t;
+			 // En caso contrario de calcula el punto sobre la linea usando t.
+			 else
+			 vClosestPoint = o + dir * (t1);
 
-			// Se pureba si el punto mas cercao esta contenido en el radio de la esfera.
-			if (glm::distance(c1, vClosestPoint) <= sbb1.ratio * 0.2f)
-				std::cout << "Picking" << std::endl;
+			 // Se pureba si el punto mas cercao esta contenido en el radio de la esfera.
+			 if (glm::distance(c1, vClosestPoint) <= sbb1.ratio * 0.2f)
+			 std::cout << "Picking" << std::endl;*/
 
-			/*if (raySphereIntersect(o, t, dir, c1, sbb1.ratio * 0.2f, t1))
-			 std::cout << "Picking nanosuit" << std::endl;
-			 if (raySphereIntersect(o, t, dir, c2, sbb2.ratio * 0.8f, t1))
-			 std::cout << "Picking cyborg" << std::endl;*/
+			if (raySphereIntersect(o, t, dir, c1, sbb1.ratio * 0.2f, t1))
+				std::cout << "Picking nanosuit" << std::endl;
+			if (raySphereIntersect(o, t, dir, c2, sbb2.ratio * 0.8f, t1))
+				std::cout << "Picking cyborg" << std::endl;
 			windowManager->inputManager.setGenerateRay(false);
 		}
 
 		// For test collision sphere vs sphere
-		/*SBB s1, s2;
+		SBB s1, s2;
 		s1.center = glm::vec3(model1 * glm::vec4(0, 0, 0, 1));
 		s1.ratio = sbb1.ratio * 0.2f;
 		s2.center = glm::vec3(model2 * glm::vec4(0, 0, 0, 1));
-		s2.ratio = sbb2.ratio * 0.2f;
-		if (testSphereSphereIntersection(sbb1, sbb2))
-			std::cout << "Model collision:" << std::endl;*/
+		s2.ratio = sbb2.ratio * 0.8f;
+		if (testSphereSphereIntersection(s1, s2))
+			std::cout << "Model collision:" << std::endl;
+		//testSphereSphereIntersection(s1, s2);
 
 		// Get the uniform locations
 		modelLoc = shader2.getUniformLocation("model");

@@ -81,7 +81,13 @@ bool raySphereIntersect(glm::vec3 orig, glm::vec3 dest, glm::vec3 dir,
 
 bool testSphereSphereIntersection(SBB sbb1, SBB sbb2) {
 	float d = glm::distance(sbb1.center, sbb2.center);
-	if (d < (sbb1.ratio + sbb2.ratio))
+	/*float d = sqrt(
+			pow(sbb1.center.x - sbb2.center.x, 2)
+					+ pow(sbb1.center.y - sbb2.center.y, 2)
+					+ pow(sbb1.center.y - sbb2.center.y, 2));
+	std::cout << "d:" << d << std::endl;
+	std::cout << "sum:" << sbb1.ratio + sbb2.ratio << std::endl;*/
+	if (d <= (sbb1.ratio + sbb2.ratio))
 		return true;
 	return false;
 }
