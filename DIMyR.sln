@@ -83,6 +83,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntegrationSFML", "Integrat
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExampleCollision", "ExampleCollision\ExampleCollision.vcxproj", "{05E85FFA-D91C-4DBC-AE2D-9C97F263856E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SourceRotationOpenAL", "SourceRotationOpenAL\SourceRotationOpenAL.vcxproj", "{66568ADB-EDE2-4B74-BD60-26CB0B12A713}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -249,6 +251,10 @@ Global
 		{05E85FFA-D91C-4DBC-AE2D-9C97F263856E}.Debug|Win32.Build.0 = Debug|Win32
 		{05E85FFA-D91C-4DBC-AE2D-9C97F263856E}.Release|Win32.ActiveCfg = Release|Win32
 		{05E85FFA-D91C-4DBC-AE2D-9C97F263856E}.Release|Win32.Build.0 = Release|Win32
+		{66568ADB-EDE2-4B74-BD60-26CB0B12A713}.Debug|Win32.ActiveCfg = Debug|Win32
+		{66568ADB-EDE2-4B74-BD60-26CB0B12A713}.Debug|Win32.Build.0 = Debug|Win32
+		{66568ADB-EDE2-4B74-BD60-26CB0B12A713}.Release|Win32.ActiveCfg = Release|Win32
+		{66568ADB-EDE2-4B74-BD60-26CB0B12A713}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
