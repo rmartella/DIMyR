@@ -16,17 +16,15 @@
 
 class Model {
 public:
-	Model(std::string const & path);
-	virtual ~Model();
-
+	Model();
+	void loadModel(const std::string & path);
 	void render(Shader * shader);
-
+	void destroy();
+	virtual ~Model();
 	std::vector<Mesh> getMeshes() {
 		return meshes;
 	}
-
 private:
-	void loadModel(std::string path);
 	void processNode(aiNode* node, const aiScene* scene);
 	Mesh processMesh(aiMesh* mesh, const aiScene* scene);
 	std::vector<Texture> loadMaterialTextures(aiMaterial* mat,

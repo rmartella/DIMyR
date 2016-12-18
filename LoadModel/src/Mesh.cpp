@@ -15,18 +15,21 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<GLuint> indices,
 }
 
 Mesh::~Mesh() {
-	/*glDisableVertexAttribArray(0);
-	 glDisableVertexAttribArray(1);
-	 glDisableVertexAttribArray(2);
+}
 
-	 glBindBuffer(GL_ARRAY_BUFFER, 0);
-	 glDeleteBuffers(1, &VBO);
+void Mesh::destroy() {
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	glDisableVertexAttribArray(2);
 
-	 glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	 glDeleteBuffers(1, &EBO);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glDeleteBuffers(1, &VBO);
 
-	 glBindVertexArray(0);
-	 glDeleteVertexArrays(1, &VAO);*/
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glDeleteBuffers(1, &EBO);
+
+	glBindVertexArray(0);
+	glDeleteVertexArrays(1, &VAO);
 }
 
 void Mesh::render(Shader * shader) {
@@ -50,7 +53,9 @@ void Mesh::render(Shader * shader) {
 			ss << heightNr++; // Transfer GLuint to stream
 		number = ss.str();
 
-		glUniform1i(shader->getUniformLocation((name + number).c_str()), i);
+		glUniform1i(
+				shader->getUniformLocation(
+						("material." + name + number).c_str()), i);
 		// And finally bind the texture
 		this->textures[i].bind(GL_TEXTURE0 + i);
 	}

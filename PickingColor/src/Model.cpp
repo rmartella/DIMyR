@@ -7,12 +7,10 @@
 
 #include "Headers/Model.h"
 
-Model::Model(std::string const & path) {
-	this->loadModel(path);
+Model::Model() {
 }
 
 Model::~Model() {
-
 }
 
 void Model::render(Shader * shader) {
@@ -20,10 +18,15 @@ void Model::render(Shader * shader) {
 		this->meshes[i].render(shader);
 }
 
-void Model::loadModel(std::string path) {
+void Model::destroy() {
+	for (GLuint i = 0; i < this->meshes.size(); i++)
+		this->meshes[i].destroy();
+}
+
+void Model::loadModel(const std::string & path) {
 	// Read file via ASSIMP
 	Assimp::Importer importer;
-	const aiScene* scene = importer.ReadFile(path,
+	const aiScene* scene = importer.ReadFile(path.c_str(),
 			aiProcess_Triangulate | aiProcess_FlipUVs
 					| aiProcess_CalcTangentSpace);
 	// Check for errors

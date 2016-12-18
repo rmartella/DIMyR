@@ -43,6 +43,7 @@ public:
 	Mesh(std::vector<Vertex> vertices, std::vector<GLuint> indices,
 			std::vector<Texture> textures);
 	void render(Shader * shader);
+	void destroy();
 	virtual ~Mesh();
 private:
 	void loadMesh();

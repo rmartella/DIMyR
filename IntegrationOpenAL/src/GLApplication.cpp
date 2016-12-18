@@ -7,12 +7,9 @@
 
 #include "Headers/GLApplication.h"
 
-Shader shader;
 Sphere sphere(2.0, 25, 25, MODEL_MODE::VERTEX_LIGHT_TEXTURE);
 Texture textureDifuse(GL_TEXTURE_2D, "Textures/container2.png");
 Texture textureSpecular(GL_TEXTURE_2D, "Textures/container2_specular.png");
-
-GLuint VAO, VBO, EBO;
 
 #define NUM_BUFFERS 3
 #define NUM_SOURCES 3
@@ -114,6 +111,8 @@ void GLApplication::initialize() {
 	alSourcei(source[0], AL_LOOPING, AL_TRUE);
 	alSourcef(source[0], AL_MAX_DISTANCE, 1200);
 
+	objModel.loadModel("objects/nanosuit/nanosuit.obj");
+
 	/*alSourcef(source[1], AL_PITCH, 1.0f);
 	 alSourcef(source[1], AL_GAIN, 1.0f);
 	 alSourcefv(source[1], AL_POSITION, source1Pos);
@@ -133,7 +132,6 @@ void GLApplication::applicationLoop() {
 	bool processInput = true;
 
 	glm::vec3 lightPos(0.0f, 0.0f, 10.0f);
-	Model objModel("objects/nanosuit/nanosuit.obj");
 
 	while (processInput) {
 		processInput = windowManager->processInput(true);
@@ -218,17 +216,8 @@ void GLApplication::destroy() {
 		windowManager = nullptr;
 	}
 
-	glDisableVertexAttribArray(0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glDeleteBuffers(1, &VBO);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glDeleteBuffers(1, &EBO);
-
-	glBindVertexArray(0);
-	glDeleteVertexArrays(1, &VAO);
-
 	alutExit();
+
+	objModel.destroy();
 
 }

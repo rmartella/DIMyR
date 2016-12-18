@@ -12,8 +12,6 @@ Sphere sphere(2.0, 25, 25, MODEL_MODE::VERTEX_LIGHT_TEXTURE);
 Texture textureDifuse(GL_TEXTURE_2D, "Textures/container2.png");
 Texture textureSpecular(GL_TEXTURE_2D, "Textures/container2_specular.png");
 
-GLuint VAO, VBO, EBO;
-
 sf::Sound * sound;
 sf::SoundBuffer * buffer;
 
@@ -59,16 +57,19 @@ void GLApplication::initialize() {
 
 	// Display sound informations
 	std::cout << "canary.wav:" << std::endl;
-	std::cout << " " << buffer->getDuration().asSeconds() << " seconds" << std::endl;
-	std::cout << " " << buffer->getSampleRate() << " samples / sec" << std::endl;
+	std::cout << " " << buffer->getDuration().asSeconds() << " seconds"
+			<< std::endl;
+	std::cout << " " << buffer->getSampleRate() << " samples / sec"
+			<< std::endl;
 	std::cout << " " << buffer->getChannelCount() << " channels" << std::endl;
+
+	objModel.loadModel("objects/nanosuit/nanosuit.obj");
 
 }
 void GLApplication::applicationLoop() {
 	bool processInput = true;
 
 	glm::vec3 lightPos(0.0f, 0.0f, 10.0f);
-	Model objModel("objects/nanosuit/nanosuit.obj");
 
 	while (processInput) {
 		processInput = windowManager->processInput(true);
@@ -122,17 +123,19 @@ void GLApplication::applicationLoop() {
 		shader.turnOff();
 
 		windowManager->swapTheBuffers();
-		if (windowManager->inputManager.getKeyState()[InputCodes::u]){
+		if (windowManager->inputManager.getKeyState()[InputCodes::u]) {
 			std::cout << "play a sound" << std::endl;
 			sound->play();
 		}
 
-		sf::Listener::setPosition(camera->Position.x, camera->Position.y, camera->Position.z);
-		sf::Listener::setDirection(camera->Front.x, camera->Front.y, camera->Front.z);
+		sf::Listener::setPosition(camera->Position.x, camera->Position.y,
+				camera->Position.z);
+		sf::Listener::setDirection(camera->Front.x, camera->Front.y,
+				camera->Front.z);
 		sf::Listener::setUpVector(camera->Up.x, camera->Up.y, camera->Up.z);
-		
+
 		sound->setPosition(model[3].x, model[3].y, model[3].z);
-		
+
 	}
 }
 
@@ -142,18 +145,9 @@ void GLApplication::destroy() {
 		windowManager = nullptr;
 	}
 
-	glDisableVertexAttribArray(0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glDeleteBuffers(1, &VBO);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glDeleteBuffers(1, &EBO);
-
-	glBindVertexArray(0);
-	glDeleteVertexArrays(1, &VAO);
-
 	delete buffer;
 	delete sound;
+
+	objModel.destroy();
 
 }

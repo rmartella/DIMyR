@@ -7,10 +7,6 @@
 
 #include "Headers/GLApplication.h"
 
-Shader shader;
-
-GLuint VAO, VBO, EBO;
-
 GLApplication::GLApplication() :
 		windowManager(nullptr), camera(nullptr) {
 }
@@ -39,12 +35,13 @@ void GLApplication::initialize() {
 
 	shader.initialize("Shaders/shader.vs", "Shaders/shader.fs");
 
+	objModel.loadModel("objects/nanosuit/nanosuit.obj");
+
 }
 void GLApplication::applicationLoop() {
 	bool processInput = true;
 
 	glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
-	Model objModel("objects/nanosuit/nanosuit.obj");
 
 	while (processInput) {
 		processInput = windowManager->processInput(true);
@@ -85,15 +82,6 @@ void GLApplication::destroy() {
 		windowManager = nullptr;
 	}
 
-	glDisableVertexAttribArray(0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glDeleteBuffers(1, &VBO);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glDeleteBuffers(1, &EBO);
-
-	glBindVertexArray(0);
-	glDeleteVertexArrays(1, &VAO);
+	objModel.destroy();
 
 }

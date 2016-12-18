@@ -7,12 +7,9 @@
 
 #include "Headers/GLApplication.h"
 
-Shader shader;
 Sphere sphere(2.0, 25, 25, MODEL_MODE::VERTEX_LIGHT_TEXTURE);
 Texture textureDifuse(GL_TEXTURE_2D, "Textures/container2.png");
 Texture textureSpecular(GL_TEXTURE_2D, "Textures/container2_specular.png");
-
-GLuint VAO, VBO, EBO;
 
 GLApplication::GLApplication() :
 		windowManager(nullptr), camera(nullptr) {
@@ -48,12 +45,13 @@ void GLApplication::initialize() {
 	textureDifuse.load();
 	textureSpecular.load();
 
+	objModel.loadModel("objects/nanosuit/nanosuit.obj");
+
 }
 void GLApplication::applicationLoop() {
 	bool processInput = true;
 
 	glm::vec3 lightPos(0.0f, 0.0f, 10.0f);
-	Model objModel("objects/nanosuit/nanosuit.obj");
 
 	while (processInput) {
 		processInput = windowManager->processInput(true);
@@ -66,11 +64,7 @@ void GLApplication::applicationLoop() {
 				camera->Position.z);
 
 		// Set material properties
-		GLint matDiffuseLoc = shader.getUniformLocation("material.diffuse");
-		GLint matSpecularLoc = shader.getUniformLocation("material.specular");
 		GLint matShineLoc = shader.getUniformLocation("material.shininess");
-		glUniform1i(matDiffuseLoc, 0);
-		glUniform1i(matSpecularLoc, 1);
 		glUniform1f(matShineLoc, 32.0f);
 
 		// Set lights properties
@@ -116,15 +110,6 @@ void GLApplication::destroy() {
 		windowManager = nullptr;
 	}
 
-	glDisableVertexAttribArray(0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glDeleteBuffers(1, &VBO);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glDeleteBuffers(1, &EBO);
-
-	glBindVertexArray(0);
-	glDeleteVertexArrays(1, &VAO);
+	objModel.destroy();
 
 }

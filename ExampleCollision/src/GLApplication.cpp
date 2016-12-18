@@ -8,8 +8,6 @@
 #include "Headers/GLApplication.h"
 #include "Headers/collision.h"
 
-Shader shader;
-Shader shader2;
 Sphere sphere(1.0, 25, 25, MODEL_MODE::VERTEX_LIGHT_TEXTURE);
 Texture textureDifuse(GL_TEXTURE_2D, "Textures/container2.png");
 Texture textureSpecular(GL_TEXTURE_2D, "Textures/container2_specular.png");
@@ -52,13 +50,14 @@ void GLApplication::initialize() {
 	textureDifuse.load();
 	textureSpecular.load();
 
+	objModel1.loadModel("objects/nanosuit/nanosuit.obj");
+	objModel2.loadModel("objects/cyborg/cyborg.obj");
+
 }
 void GLApplication::applicationLoop() {
 	bool processInput = true;
 
 	glm::vec3 lightPos(0.0f, 0.0f, 10.0f);
-	Model objModel1("objects/nanosuit/nanosuit.obj");
-	Model objModel2("objects/cyborg/cyborg.obj");
 
 	SBB sbb1 = getSBB(objModel1.getMeshes());
 	SBB sbb2 = getSBB(objModel2.getMeshes());
@@ -276,5 +275,8 @@ void GLApplication::destroy() {
 	for (int i = 0; i < rays.size(); i++) {
 		glDeleteVertexArrays(1, &rays[i]);
 	}
+
+	objModel1.destroy();
+	objModel2.destroy();
 
 }

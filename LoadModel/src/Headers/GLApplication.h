@@ -49,6 +49,8 @@ public:
 protected:
 	WindowManager * windowManager;
 	CameraFPS * camera;
+	Shader shader;
+	Model objModel;
 
 };
 
